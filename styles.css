@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* li, a, button {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ecf0f1;
+  text-decoration: none;
+} */
+
+
+
+
+
+/* button {
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+} */
+
+/* button:hover {
+  background-color: rgba(0,136,169,0.8);
+} */
+
+header, html {
+  height: 100%;
+  margin: 0;
+  background-image: url("images/index_background.jpeg");
+  }
+/* 
+  body {
+  /* The image used */
+  /* background-image: url("images/index_background.jpeg"); */
+
+  /* Full height */
+  /* height: 100%; */
+
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  } */
+
+
+/* body {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333; */
+/* } */
+
+/* .navbar li {
+  float: left;
+} */
+
+/* .navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+/* Change the link color to #111 (black) on hover */
+/* .navbar li a:hover {
+  background-color: #111;
+} */
+
+
+
+
+
+
+/* general */
+
+.sr-only {
+  color: transparent;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1.5rem);
+}
+
+/* set up the body */
+body {
+  overflow-x: hidden;
+}
+
+/* primary header */
+
+.primary-header {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.logo{
+  width: 8rem;
+  height: 2.5rem;
+}
+
+.logo a {
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 28px;
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.primary-navigation {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+/* .primary-navigation li {
+  display: inline-block;
+  padding: 0px 20px;
+} */
+
+.primary-navigation li a {
+  transition: all 0.3s ease 0s;
+}
+
+.primary-navigation li a:hover {
+  color: #0088a9;
+}
+
+.primary-navigation a {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+@media (max-width: 55em) {
+  .primary-header {
+    padding: 0.75rem;
+  }
+
+  .logo {
+    z-index: 2000;
+  }
+
+  .primary-navigation {
+    gap: var(--gap, 0.75rem);
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 40%;
+    flex-direction: column;
+    padding: min(30vh, 8rem) 2rem;
+    background: black;
+
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%)
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    background-color: transparent;
+    background-image: url("images/Hamburger_icon_white.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.25rem;
+    border: 0;
+    aspect-ratio: 1;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("images/Cross_icon_white.svg");
+    width: 1rem;
+  }
+}
+
