@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
-
 /* li, a, button {
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
@@ -14,10 +7,6 @@
   color: #ecf0f1;
   text-decoration: none;
 } */
-
-
-
-
 
 /* button {
   padding: 9px 25px;
@@ -32,11 +21,6 @@
   background-color: rgba(0,136,169,0.8);
 } */
 
-header, html {
-  height: 100%;
-  margin: 0;
-  background-image: url("images/index_background.jpeg");
-  }
 /* 
   body {
   /* The image used */
@@ -89,6 +73,16 @@ header, html {
 
 /* general */
 
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+} */
+
+/* header, html {
+  height: 100%;
+  margin: 0;
+  } */
+
 .sr-only {
   color: transparent;
 }
@@ -101,20 +95,29 @@ header, html {
 /* set up the body */
 body {
   overflow-x: hidden;
+  background-color: black;
+  margin: 0;
 }
 
 /* primary header */
 
 .primary-header {
-  background-color: transparent;
+  background-color: black;
+  background-image: url("images/project-index1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-blend-mode: multiply; */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  /* padding: 2rem; */
+  /* padding-top: 2rem; */
+  height: 100vh;
+  width: 100vw;
 }
 
 .logo{
-  width: 8rem;
+  width: 6rem;
   height: 2.5rem;
 }
 
@@ -206,3 +209,19 @@ body {
   }
 }
 
+/* task 1 slide */
+
+.task1 {
+  background-color: black;
+  background-image: url("images/task1-index.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-blend-mode: multiply; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 2rem; */
+  /* padding-top: 2rem; */
+  height: 100vh;
+  width: 100vw;
+}
