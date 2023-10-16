@@ -28,6 +28,7 @@ body {
   background-position: center;
   /* background-blend-mode: multiply; */
   display: flex;
+  gap: var(--gap, 3.5rem);
   justify-content: center;
   /* align-items: center; */
   /* padding: 2rem; */
@@ -38,8 +39,8 @@ body {
 
 .logo{
   padding-top: 2rem;
-  width: 6rem;
-  height: 2.5rem;
+  /* width: 6rem; */
+  /* height: 2.5rem; */
 }
 
 .logo a {
@@ -83,6 +84,7 @@ body {
   .logo {
     z-index: 2000;
     padding-top: 0.75rem;
+    padding-left: 1rem;
   }
 
   .primary-navigation {
@@ -100,7 +102,7 @@ body {
   }
 
   .primary-navigation li {
-    width: 14rem;
+    width: 12rem;
     border-bottom: 1px solid rgb(47, 47, 47);
     text-align: end;
   }
