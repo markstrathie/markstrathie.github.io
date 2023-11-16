@@ -87,7 +87,7 @@ body {
   text-decoration: none;
 }
 
-@media (max-width: 55em) {
+@media (max-width: 75em) {
   .logo {
     z-index: 2000;
     padding-top: 0.75rem;
@@ -138,6 +138,7 @@ body {
     background-image: url("../img/Cross_icon_white.svg");
     width: 1rem;
   }
+
 }
 
 /* index slides */
@@ -236,14 +237,51 @@ body {
   background-image: url("../img/task11-index.jpg");
 }
 
+/* setting up other pages */
+
+.page-start {
+  flex-grow: 1;
+}
+
+.page-start h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  word-wrap: normal;
+  text-align: center;
+}
+
+.page-start h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 2vh;
+  word-wrap: normal;
+  text-align: center;
+}
+
+.page-content {
+  text-align: justify;
+  padding-bottom: 1vh;
+  padding-top: 8vh;
+  padding-left: 8vw;
+  padding-right: 8vw;
+
+}
+
 /* footer */
 
 footer {
   display: flex;
-  gap: var(--gap, 2.5rem);
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   height: 5rem;
-  font-size: 14px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+footer p {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
