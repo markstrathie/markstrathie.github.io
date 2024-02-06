@@ -195,46 +195,30 @@ body {
 
 /* slides from below header */
 
-.task1 {
-  background-image: url("../img/task1-index.jpg");
+.ask {
+  background-image: url("../img/ask1.jpg");
 }
 
-.task2 {
-  background-image: url("../img/task2-index.jpg");
+.prepare {
+  background-image: url("../img/prepare-3.jpg");
 }
 
-.task3 {
-  background-image: url("../img/task3-index.jpg");
+.process {
+  background-image: url("../img/process.jpg");
+  background-position: top;
+}
+
+.analyse {
+  background-image: url("../img/analyse-2.jpg");
+}
+
+.share {
+  background-image: url("../img/share.jpg");
+}
+
+.act {
+  background-image: url("../img/act-2.jpg");
   background-position: bottom;
-}
-
-.task4 {
-  background-image: url("../img/task4-index.jpg");
-  background-position: left;
-}
-
-.task5 {
-  background-image: url("../img/task5-index.jpg");
-}
-
-.task7 {
-  background-image: url("../img/task7-index.jpg");
-}
-
-.task8 {
-  background-image: url("../img/task8-index.jpg");
-}
-
-.task9 {
-  background-image: url("../img/task9-index.jpg");
-}
-
-.task10 {
-  background-image: url("../img/task10-index.jpg");
-}
-
-.task11 {
-  background-image: url("../img/task11-index.jpg");
 }
 
 /* setting up other pages */
