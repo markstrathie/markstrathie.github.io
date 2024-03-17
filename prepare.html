@@ -49,44 +49,56 @@
 
 	<div class="page-content">
 		<div>
-		<h3>THE PROJECT</h3>
-		<p>Data+AI is a free tutorial website aimed at teaching the basics of data analysis while utilising simple AI to optimise your workflow. It is aimed at beginners and will break down the entire process into 6 stages:</p>
-		<ol>
-			<li>Plan</li>
-			<li>Prepare</li>
-			<li>Process</li>
-			<li>Analyse</li>
-			<li>Share</li>
-			<li>Act</li>
-		</ol>
-			<p>An example project will be used to demonstrate all the necessary skills. This will be a musical trend analysis using Kanye West lyrics and sales figures. By the end of the project, you will be able to predict the success of an album by determining the most frequently used words in each track. You will learn to create word clouds like this one on the right (in the shape of the Gradutation Bear). This website is a jumping off point to learn these skills and then take them further on your own projects. It is a resource you can return to in any order to refresh your memory.</p>
-			<p>A Data Analyst is a rewarding and sought-after career and the more prior education you have will allow you to build an enticing portfolio that demonstrates your personal skills to prospective employers. Even if you are not seeking a career in this field directly, many jobs require conducting rudimentary data analysis to make sound business decisions.</p>
-			<p>It is assumed you are familiar with the concepts of data analysis and artificial intelligence, along with essential computer skills such as downloading programs and using chat bots.</p>
-		</div>
-		<div><img src="img/word_bear.png" alt="ChatGPT Logo"></div>
-		<div class="logos-list">
-			<img src="img/Python-logo-notext.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/jupyter-main-logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/vs-code-logo.png" alt="ChatGPT Logo" height="50">
-			<img src="img/pandas_white.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/matplotlib_logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/seaborn.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/ChatGPT_logo.png" alt="ChatGPT Logo" height="50">
+		<h3>COLLECTING DATA</h3>
+		<p>Data can come from many sources such as a census, interviews, observations, forms, questionnaires, or internet cookies. When undertaking your project, you need to decide if you are going to collect new data or use existing data. In our example, and for most portfolio projects, you will work with pre-existing data. You can collect a variety of datasets and merge them to increase the scope of your analysis. Good locations to find public data that is free to use are:</p>
+		<ul>
+			<li><a href="https://datasetsearch.research.google.com/">Google Dataset Search</a></li>
+			<li><a href="https://www.kaggle.com/">Kaggle</a></li>
+			<li><a href="https://www.data.gov.uk/">UK Government Website</a></li>
+		</ul>
 		</div>
 		<div>
-		<h3>TECHNOLOGY</h3>
-		<p>	Many of you may be familiar with data analysis through the use of spreadsheet programs such as Microsoft Excel. However, in the current information age, the amount of data created and consumed is increasing exponentially. Many companies now utilise big data in their analysis. In order to process large amount of information more efficiently, coding is used to simplify and automate the process. AI is used to streamline this process even further. For these reasons, this website will focus on the following software:</p>
-			<ul>
-			<li>Python</li>
-			<li>Jupyter Notebook</li>
-			<li>Visual Studio Code</li>
-			<li>Pandas</li>
-			<li>Matplotlib</li>
-			<li>Seaborn</li>
-			<li>ChatGPT</li>
-			</ul>
+			<h3>DATA STRUCTURE</h3>
+			<p>Data can be stored in a large variety of ways. Data can be unstructured such as in the case of a collection of emails or social media posts. This is much harder to organise and analyse and takes more time to transform into useful information. Usually, you will work with structured data in the form of a spreadsheet or database which is the case with our music analysis. Our lyrics are an example of qualitative data, which is longer-form information about a topic. We can use this to make word clouds or perform a sentiment analysis. Our sales information is qualitative data, which is countable, limited values, and can be plotted on a graph and compared.</p>
+			<p>Data structure is important as it allows us to easily sort and filter for the information we need. Because our music data is organised into album name and total sales/streams, we can sort it in descending order to find out which album was the most/least successful financially. We can then compare the lyrical analysis of each album in an attempt to find relationships between successful musical themes. If the data was not structured we would be unable to do this.</p>
 		</div>
-		
+		<div>
+			<h3>OUR MUSIC DATA</h3>
+			<p>From the planning stage we ascertained 5 important questions we would like to explore:</p>
+			<ol>
+				<li>On a scale of 1-10 (with 10 being the most important) how relevant are song lyrics to an album's success?</li>
+				<li>What are the top 5 lyrical themes that influence a successful album?</li>
+				<li>What song elements would make listeners more likely to stream the song?</li>
+				<li>Have certain themes become more or less popular in the last three years?</li>
+				<li>How much would a listener pay for a full album instead of consuming via streaming services?</li>
+			</ol>
+			<p>And the root question using the 5 Whys method was:</p>
+			<ul>
+				<li>Why is Kanye West's content popular and controversial?</li>
+			</ul>
+			<p>
+				In order to answer these questions, we need to find a dataset containing all of the lyrics for his albums. This will allow us to analyse the themes of his music. We can then compare these themes to current culture to identify anything controversial. In order to measure success/sales/streams we also need a dataset containing album sales/streams. Once we find these 2 datasets we will have enough information to analyse. If you wanted to take this project further you could analyse another successful artist in order to compare themes and success between them.
+			</p>
+		</div>
+		<div>
+		<h3>DATASETS</h3>
+		<p>Lyrics from 9 out of 10 of Kanye West's studio albums (excluding collaboration albums) can be downloaded from Kaggle <a href="https://www.kaggle.com/datasets/convolutionalnn/kanye-west-lyrics-dataset">here</a>. This is already structured in a txt file which we can read with Python. More on installing Python below.
+		<p>Sales figures can be found from Chart Masters who compiled album sales and streams together. Link to website <a href="https://chartmasters.org/kanye-west-albums-and-songs-sales/">here</a>. We made a downloadable spreadsheet (.csv) file. This data was last updated 03/13/24. Download it <a href="resources/kanye_sales.csv">here</a>.</p> 
+		<p>We recommend storing these in a project folder where you will keep all the files related to your project. This could be in your Documents folder and named 'music-trend-analysis' for example. Make sure your datasets and other files are named appropriately to ensure anyone can easily understand what they are.</p>
+		</div>
+		<div>
+			<h3>TECH STACK</h3>
+			<p>The technology we are using was discussed in the about section. In order to follow the example, project you will need to download Python and Visual Studio Code:</p>
+			<ul>
+				<li><a href="https://www.anaconda.com/download">Anaconda</a></li>
+			</ul>
+			<p>Anaconda is a distribution of Python which contains many types of packages that are required for data analysis, such a Jupyter notebook.</p>
+			<ul>
+				<li><a href="https://code.visualstudio.com/Download">VS Code</a></li>
+			</ul>
+			<p>This is an Integrated Development Environment (IDE) that helps you develop your code more easily.</p>
+			<p>Please follow the installation instructions found on the creator’s websites. Once installed you are ready to start processing your data! Visit the next section <a href="process.html">here</a>.</p>
+		</div>
 	</div>
 
 	<!-- end the main section of the homepage -->

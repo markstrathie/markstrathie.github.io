@@ -254,8 +254,7 @@ body {
 }
 
 .page-content img {
-  max-height: auto;
-  max-width: 70%;
+  max-width: 100%;
 }
 
 .page-content h3 {

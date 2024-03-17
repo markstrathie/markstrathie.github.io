@@ -12,6 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body class="home">
@@ -49,44 +52,116 @@
 
 	<div class="page-content">
 		<div>
-		<h3>THE PROJECT</h3>
-		<p>Data+AI is a free tutorial website aimed at teaching the basics of data analysis while utilising simple AI to optimise your workflow. It is aimed at beginners and will break down the entire process into 6 stages:</p>
-		<ol>
-			<li>Plan</li>
-			<li>Prepare</li>
-			<li>Process</li>
-			<li>Analyse</li>
-			<li>Share</li>
-			<li>Act</li>
-		</ol>
-			<p>An example project will be used to demonstrate all the necessary skills. This will be a musical trend analysis using Kanye West lyrics and sales figures. By the end of the project, you will be able to predict the success of an album by determining the most frequently used words in each track. You will learn to create word clouds like this one on the right (in the shape of the Gradutation Bear). This website is a jumping off point to learn these skills and then take them further on your own projects. It is a resource you can return to in any order to refresh your memory.</p>
-			<p>A Data Analyst is a rewarding and sought-after career and the more prior education you have will allow you to build an enticing portfolio that demonstrates your personal skills to prospective employers. Even if you are not seeking a career in this field directly, many jobs require conducting rudimentary data analysis to make sound business decisions.</p>
-			<p>It is assumed you are familiar with the concepts of data analysis and artificial intelligence, along with essential computer skills such as downloading programs and using chat bots.</p>
-		</div>
-		<div><img src="img/word_bear.png" alt="ChatGPT Logo"></div>
-		<div class="logos-list">
-			<img src="img/Python-logo-notext.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/jupyter-main-logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/vs-code-logo.png" alt="ChatGPT Logo" height="50">
-			<img src="img/pandas_white.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/matplotlib_logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/seaborn.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/ChatGPT_logo.png" alt="ChatGPT Logo" height="50">
+		<h3>DATA INTEGRITY</h3>
+		<p>3 trillion dollars is the yearly cost of poor-quality data in the US alone, IBM estimated in 2016. The data cleaning process is important to ensure data integrity. Our data may be incomplete or insufficient in a number of ways. This can be in form of incorrect data types, or incorrect ranges. For example, our song lyrics will need to be textual data. We will need to ensure the correct range for our album sales to make sure they are accurate - if the range was 1-10 million, 100 million would be invalid. We also need to make sure our data is relevant and not outdated.</p>
 		</div>
 		<div>
-		<h3>TECHNOLOGY</h3>
-		<p>	Many of you may be familiar with data analysis through the use of spreadsheet programs such as Microsoft Excel. However, in the current information age, the amount of data created and consumed is increasing exponentially. Many companies now utilise big data in their analysis. In order to process large amount of information more efficiently, coding is used to simplify and automate the process. AI is used to streamline this process even further. For these reasons, this website will focus on the following software:</p>
-			<ul>
-			<li>Python</li>
-			<li>Jupyter Notebook</li>
-			<li>Visual Studio Code</li>
-			<li>Pandas</li>
-			<li>Matplotlib</li>
-			<li>Seaborn</li>
-			<li>ChatGPT</li>
-			</ul>
+			<h3>DATA CLEANING</h3>
+			<p>A basic 5 step process to ensure clean data would be:</p>
+				<ol>
+				<li>Copy dataset</li>
+				<li>Combining datasets can create duplicates</li>
+				<li>Remove duplicates and irrelevant data</li>
+				<li>Remove extra spaces</li>
+				<li>Check spelling, case, punctuation</li>
+				</ol>
+			<p>A changelog should be kept to document changes to your datasets. This makes it easier to revert back to earlier versions if any mistakes are made. It allows others to make sense of data that has been transformed. Click <a href="resources/changlog.txt">here</a> to download a template that you can fill out as you proceed in your data analysis projects.</p>
 		</div>
-		
+		<div>
+		<h3>INSTALL ADDITIONAL LIBRARIES</h3>
+		<p>Now it's time to start coding. Python has many tools that make the data cleaning process quicker and easier. We will first read in our lyrics dataset and store it. This allows us to interact with it in our Python code. We will clean the data as we are importing it, are store it as an object called a dictionary. This is a list of items where each item has a key and a value. The key will be each word, and the value how many occurrences of the word. We will then convert this to a dataframe which will allow us to view it in a nicer way. In order to perform these tasks we will need 2 additional Python libraries:</p>
+		<ul>
+			<li>Pandas</li>
+			<li>Wordcloud</li>
+		</ul>
+		<p>Pandas allows us to work with dataframes. Worldcloud allows us to make wordclouds and has a list of stopwords, which are regular filler words that we want to omit in our worldclouds. To install these open Anaconda Prompt which came with your installation of Anaconda. Then type 'conda install pandas' and follow the instructions. Do the same for Wordcloud by typing 'conda install wordcloud'.</p>
+		</div>
+		<div>
+			<img src="img/install-libraries.png">
+		</div>
+		<div>
+			<h3>INSTALL JUPYTER EXTENSION</h3>
+			<p>We will be using Jupyter notebooks for this project, which comes with Anaconda. To allow to be compatible with VS Code we need to install the extension. Open VS Code and click the extensions icon on the left. Then search for 'jupyter' and install the top result.</p>
+			</div>
+			<div>
+				<img src="img/install_jupyter.png">
+			</div>
+			<div>
+				<h3>USING VS CODE</h3>
+				<p>Once you have installed Jupyter, go to File>Open Folder and select the project folder you made in the previous section to save your datasets. Now right click in the explorer pane and select New File. Call it 'kanye_west_eda.ipynb'. At the top of the screen click +Markdown to add text to the notebook. Start with a # and a space. This makes the text title-sized. Pick something similar to Kanye West Lyrics EDA, which stands for Exploratory Data Analysis. When you're done click the tick in the top right of the cell. Now click +Code and we can start writing our first code!</p>
+				</div>
+				<div>
+					<img src="img/using_vs_code.png">
+				</div>
+				<div>
+					<h3>READING IN A TEXT FILE</h3>
+					<p>When writing the following code, it's ok if you don't understand it all. There are comments  beside the hash symbols to describe what each line does. Hopefully throughout this project you will start to understand how the code works. ChatGPT can be used as an AI assistant, and you can ask to explain sections of code for you to develop more understanding.</p>
+					<code>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a pandas dataframe and sort it in descending order from the most used word to the least used.</code>
+				</div>
+			<div>
+				<pre style="white-space: pre-wrap; text-align: left;">
+					<code class="language-python"># Library for data manipulation and can be used by writting pd
+import pandas as pd
+
+# Library for wordclouds
+# STOPWORDS are common filler words that we want to omit
+from wordcloud import STOPWORDS
+
+# Open the file in read mode
+text = open("Kanye_West_Lyrics.txt", "r")
+  
+# Create an empty dictionary
+dic = dict()
+
+# Initializing punctuations string
+punc = '''!()[]{};:"\,<>./?@#$%^&*_~'''
+
+# Initializing stopwords
+stopwords = list(STOPWORDS) + ['know', 'now', 'got', "ain't", 'oh', 'la', 'see', 'go', 'yeah', 'say', 'need', 'man', 'back', 'let', "'cause", "gon'", 'wanna', 'ya', 'uh']
+  
+# Loop through each line of the text file
+for line in text:
+    # Skip line if contains square bracket as these are labels not lyrics
+    if '[' in line:
+        continue
+
+    # Remove the leading spaces and newline character
+    line = line.strip()
+
+    # Skip line if it is empty
+    if len(line) == 0:
+        continue
+  
+    # Convert the characters in line to lowercase to avoid case mismatch
+    line = line.lower()
+  
+    # Split the line into words on spaces
+    words = line.split(" ")
+  
+    # Iterate over each word in line
+    for word in words:
+        # Remove punctuation
+        for ele in word:
+            if ele in punc:
+                word = word.replace(ele, "")
+        # Skip stopwords
+        if word in stopwords:
+            continue
+        # Check if the word is already in dictionary
+        if word in dic:
+            # Increment count of word by 1
+            dic[word] = dic[word] + 1
+        else:
+            # Add the word to dictionary with count 1
+            dic[word] = 1
+
+# Convert dict into a dataframe using pandas
+df = pd.DataFrame(dic.items(), columns=['Name', 'Occurrence'])
+
+# See list of most common words
+print(df.sort_values(by = ['Occurrence'], ascending=False).to_string())</code>
+				</pre>
+			</div>
 	</div>
 
 	<!-- end the main section of the homepage -->
