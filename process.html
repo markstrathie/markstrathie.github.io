@@ -42,7 +42,7 @@
 
 		<div class="page-start process flex">
 			<div>
-			<h1>DATA CLEANING AND TRANSFORMATION</h1>
+			<h1>PROCCESS AND CLEAN DATA</h1>
 			<h2>Learn more below</h2>
 			</div>
 		</div>
@@ -99,17 +99,16 @@
 					<code>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a pandas dataframe and sort it in descending order from the most used word to the least used.</code>
 				</div>
 			<div>
-				<pre style="white-space: pre-wrap; text-align: left;">
-					<code class="language-python"># Library for data manipulation and can be used by writting pd
+				<pre style="white-space: pre-line; text-align: left;">
+					<code class="language-python" style="word-break: break-word;"># Library for data manipulation and can be used by writting pd
 import pandas as pd
 
-# Library for wordclouds
-# STOPWORDS are common filler words that we want to omit
+# Library for wordclouds, STOPWORDS are common filler words that we want to omit
 from wordcloud import STOPWORDS
 
 # Open the file in read mode
 text = open("Kanye_West_Lyrics.txt", "r")
-  
+	
 # Create an empty dictionary
 dic = dict()
 
@@ -118,42 +117,42 @@ punc = '''!()[]{};:"\,<>./?@#$%^&*_~'''
 
 # Initializing stopwords
 stopwords = list(STOPWORDS) + ['know', 'now', 'got', "ain't", 'oh', 'la', 'see', 'go', 'yeah', 'say', 'need', 'man', 'back', 'let', "'cause", "gon'", 'wanna', 'ya', 'uh']
-  
+	
 # Loop through each line of the text file
 for line in text:
-    # Skip line if contains square bracket as these are labels not lyrics
-    if '[' in line:
-        continue
+	# Skip line if contains square bracket as these are labels not lyrics
+	if '[' in line:
+		continue
 
-    # Remove the leading spaces and newline character
-    line = line.strip()
+	# Remove the leading spaces and newline character
+	line = line.strip()
 
-    # Skip line if it is empty
-    if len(line) == 0:
-        continue
-  
-    # Convert the characters in line to lowercase to avoid case mismatch
-    line = line.lower()
-  
-    # Split the line into words on spaces
-    words = line.split(" ")
-  
-    # Iterate over each word in line
-    for word in words:
-        # Remove punctuation
-        for ele in word:
-            if ele in punc:
-                word = word.replace(ele, "")
-        # Skip stopwords
-        if word in stopwords:
-            continue
-        # Check if the word is already in dictionary
-        if word in dic:
-            # Increment count of word by 1
-            dic[word] = dic[word] + 1
-        else:
-            # Add the word to dictionary with count 1
-            dic[word] = 1
+	# Skip line if it is empty
+	if len(line) == 0:
+		continue
+	
+	# Convert the characters in line to lowercase to avoid case mismatch
+	line = line.lower()
+	
+	# Split the line into words on spaces
+	words = line.split(" ")
+	
+	# Iterate over each word in line
+	for word in words:
+		# Remove punctuation
+		for ele in word:
+			if ele in punc:
+				word = word.replace(ele, "")
+		# Skip stopwords
+		if word in stopwords:
+			continue
+		# Check if the word is already in dictionary
+		if word in dic:
+			# Increment count of word by 1
+			dic[word] = dic[word] + 1
+		else:
+			# Add the word to dictionary with count 1
+			dic[word] = 1
 
 # Convert dict into a dataframe using pandas
 df = pd.DataFrame(dic.items(), columns=['Name', 'Occurrence'])
