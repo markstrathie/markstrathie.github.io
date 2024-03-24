@@ -12,6 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body class="home">
@@ -49,44 +52,280 @@
 
 	<div class="page-content">
 		<div>
-		<h3>THE PROJECT</h3>
-		<p>Data+AI is a free tutorial website aimed at teaching the basics of data analysis while utilising simple AI to optimise your workflow. It is aimed at beginners and will break down the entire process into 6 stages:</p>
-		<ol>
-			<li>Plan</li>
-			<li>Prepare</li>
-			<li>Process</li>
-			<li>Analyse</li>
-			<li>Share</li>
-			<li>Act</li>
-		</ol>
-			<p>An example project will be used to demonstrate all the necessary skills. This will be a musical trend analysis using Kanye West lyrics and sales figures. By the end of the project, you will be able to predict the success of an album by determining the most frequently used words in each track. You will learn to create word clouds like this one on the right (in the shape of the Gradutation Bear). This website is a jumping off point to learn these skills and then take them further on your own projects. It is a resource you can return to in any order to refresh your memory.</p>
-			<p>A Data Analyst is a rewarding and sought-after career and the more prior education you have will allow you to build an enticing portfolio that demonstrates your personal skills to prospective employers. Even if you are not seeking a career in this field directly, many jobs require conducting rudimentary data analysis to make sound business decisions.</p>
-			<p>It is assumed you are familiar with the concepts of data analysis and artificial intelligence, along with essential computer skills such as downloading programs and using chat bots.</p>
+			<h3>SORTING</h3>
+			<p>Analysing data is the most exciting part of the data analysis process. It is where all the work you've completed up to this point pays off. Data analysts are like data detectives that work to identify trends and relationships between datasets. The first step of analysis usually involves formatting your data.</p>
+			<p>You may be familiar with sorting. This is where we can arrange rows of our data in order of a chosen variable. In our case, we will sort our lyrics on their occurrences from highest to lowest. Since this data is so long we will use the toString and print functions to output a complete list. We will then be able to see the most used words in Kanye West's music. We will also sort his album sales in descending order, to see what his most commercially successful albums were. Let's take a look at the code.</p>
 		</div>
-		<div><img src="img/word_bear.png" alt="ChatGPT Logo"></div>
-		<div class="logos-list">
-			<img src="img/Python-logo-notext.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/jupyter-main-logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/vs-code-logo.png" alt="ChatGPT Logo" height="50">
-			<img src="img/pandas_white.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/matplotlib_logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/seaborn.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/ChatGPT_logo.png" alt="ChatGPT Logo" height="50">
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python"># See list of most common words
+df_lyrics = df_lyrics.sort_values(by = ['Occurrence'], ascending = False)
+# Reset index to new order
+df_lyrics = df_lyrics.reset_index(drop = True)
+# Convert to text data and print full list
+print(df_lyrics.to_string())
+
+# Sort albums by most sales to least sales
+df_sales = df_sales.sort_values(by = ['Total EAS'], ascending = False)
+# Reset index
+df_sales = df_sales.reset_index(drop = True)
+# Display dataframe
+df_sales.head(15)</code>
+			</pre>
 		</div>
 		<div>
-		<h3>TECHNOLOGY</h3>
-		<p>	Many of you may be familiar with data analysis through the use of spreadsheet programs such as Microsoft Excel. However, in the current information age, the amount of data created and consumed is increasing exponentially. Many companies now utilise big data in their analysis. In order to process large amount of information more efficiently, coding is used to simplify and automate the process. AI is used to streamline this process even further. For these reasons, this website will focus on the following software:</p>
-			<ul>
-			<li>Python</li>
-			<li>Jupyter Notebook</li>
-			<li>Visual Studio Code</li>
-			<li>Pandas</li>
-			<li>Matplotlib</li>
-			<li>Seaborn</li>
-			<li>ChatGPT</li>
-			</ul>
+			<h3>RESULTS</h3>
+			<p>From sorting these datasets, we can see 2 initial insights. The most sung word is "Love". This indicates a strong positive theme to Kanye West's music overall. The word "Shit" may indicate a more angry or negative sentiment, but this is the 4th most common word. "God" is the 10th most spoken which may indicate a religious theme to the music.</p>
+			<p>From the sorted sales data, we can see the most commercially successful album is 'Graduation'. The least successful is 'Jesus is King'. This is omitting the collaboration albums 'Kids See Ghosts' and 'VULTURES'. For further analysis is would be interesting to compare Graduation with Jesus is King to see the difference in themes between the most and least successful albums.</p>
 		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-html">			Name		Occurrence
+0			love		202
+1			make		198
+2			right		194
+3			shit		193
+4			never		180
+5			one			166
+6			feel		156
+7			life		140
+8			still		139
+9			god			136
+
+
+    Album               Total EAS
+0	  Graduation          15316000.0
+1	  Orphan              11478000.0
+2	  Late Registration   10887000.0
+3	  The College Dropout 10330000.0
+4	  My Beautiful Dark
+    Twisted Fantasy     9657000.0
+5	  Watch the Throne    8767000.0
+6	  808s & Heartbreak   8174000.0
+7	  The Life of Pablo   6622000.0
+8	  Features            5738000.0
+9	  Yeezus              4846000.0
+10	Donda               4140000.0
+11	Ye                  3078000.0
+12	Jesus Is King       1837000.0
+13	Kids See Ghosts     1730000.0
+14	VULTURES            1932000.0</code>
+			</pre>
+		</div>
+		<div>
+			<h3>FILTERING</h3>
+			<p>Filtering allows us to focus on specific parts of data and ignore the rest. This means we can analyse the only data based on the conditions we specify. For our project, we want to filter by album, so we can see themes associated with each. This will then allow us to compare each album's theme with its sales in order to see trends. I have already added album names to the lyrics text file. Some datasets will already have this information, so you will need to check yours for your own project.</p>
+		</div>
+		<div>
+			<h3>AI ASSISTANCE</h3>
+			<p>In order to filter by album name, we need to go back to the code that reads in our text file. If you remember, this was a for loop that read over all the words and lines in the file. Now each album has its own individual words that need to be counted and reset when the next album begins. Our data structure is also slightly more complex as the words need to be stored under each album instead of one complete dictionary.</p>
+			<p>These coding problems are too complex to address in this beginner's tutorial. However, for your own project and for this one, you can use AI assistance at this point. ChatGPT allows you to code in English by describing what you need to achieve. The chatbot will then provide you with example code that you can copy into your notebook. Make sure you read this through to make sure it does what you want. ChatGPT includes comments on each line that you can check. If you are unsure or the code doesn't work the way you require, you can add further prompts to the AI.</p>
+		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-html">Prompt 1: Write python code to read a text file containing lyrics and count occurances of each unique word. Include a way to separate sections of the text file into albums. Each album will have its own count of unique words.
+
+Prompt 2: Add to the code to skip lines in the text file that include a square bracket.
+
+Prompt 3: Now remove all punction from the words except from apostrophes. If a word has an apostrophe, treat this as one word.
+
+Prompt 4: Skip any words that are included in a pre-defined list called STOPWORDS.
+
+Prompt 5: Record the album name for each album. It is located under the delimiter (=====).
+
+Prompt 6: Will it read the album name for the first section from the very first line of the file?
+
+Prompt 7: Define a new function that prints the top 10 most occuring words of each album.</code>
+			</pre>
+		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python">import re
+from collections import Counter
+from wordcloud import STOPWORDS
+
+# Initializing stopwords
+stopwords = list(STOPWORDS)+['know', 'now', 'got', "ain't", 'oh', 'ooh', 'la', 'see', 'go', 'yeah', 'say', 'need', 'man', 'back', 'let', "'cause", "gon'", 'wanna', 'ya', 'uh', 'woo', 'mhm', 'huh', "i'ma", 'bam', "'ey", 'dem', 'gwaan', 'hey', 'lah', 'gotta', 'gonna']
+
+def count_unique_words(filename):
+	# Open the file and read its contents
+	with open(filename, 'r') as file:
+		text = file.read()
+	
+	# Split the text into sections for each album (assuming each album is separated by a delimiter, such as '=====')
+	albums = re.split(r'={5,}', text)
+	
+	# Initialize a dictionary to store word counts for each album
+	album_word_counts = {}
+	
+	# Define the regular expression pattern to tokenize the lyrics into words
+	word_pattern = re.compile(r"[\w']+")
+	
+	# Iterate over each album
+	for i, album_section in enumerate(albums, start=1):
+		if i == 1:
+			# Extract album name from the very first line of the file
+			album_lines = album_section.strip().split('\n')
+			album_name = album_lines[0].strip()  # Assumes the album name is the first line
+		else:
+			# Extract album name from the album section
+			album_lines = album_section.strip().split('\n')
+			album_name = album_lines[0].strip()  # Assumes the album name is the first line after the delimiter
 		
+		# Tokenize the lyrics of the album into words
+		words = []
+		for line in album_lines[1:]:
+			if '[' not in line:  # Skip lines containing square brackets
+				words.extend(word_pattern.findall(line.lower()))  # Convert all words to lowercase
+		
+		# Skip stopwords
+		words = [word for word in words if word not in stopwords]
+		
+		# Count the occurrences of each unique word in the album
+		word_counts = Counter(words)
+		
+		# Store the word counts for the current album
+		album_word_counts[album_name] = word_counts
+	
+	return album_word_counts
+
+def print_top_words_per_album(album_word_counts):
+	# Print the top 10 most occurring words for each album
+	for album, word_counts in album_word_counts.items():
+		print(f'Top 10 words for {album}:')
+		sorted_word_counts = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
+		for word, count in sorted_word_counts[:10]:
+			print(f'{word}: {count}')
+
+def main():
+	filename = 'Kanye_West_Lyrics.txt'  # Replace 'lyrics_with_albums.txt' with the name of your text file
+	album_word_counts = count_unique_words(filename)
+	
+	# Print the word counts for each album
+	print_top_words_per_album(album_word_counts)
+	
+if __name__ == "__main__":
+	main()</code>
+			</pre>
+		</div>
+		<div>
+			<h3>RESULTS</h3>
+			<p>After using AI to help with this section of coding, we managed to produce a list of all albums and the top 10 most used words for each. If you check these, spending on your lyrics source for the project, there may be a lot of filler words. In our example, these were words like “ooh” and “la.” In the code included above, all of these filler words are added to our stopwords and filtered out of the analysis. You may wish to do the same for your project.</p>
+			<p>Now with our results we can see the most common words from each album and begin to notice themes. We can then correlate this with the album sales to see which themes appear to be the most successful.</p>
+			<p>Graduation, the most successful album, has frequent occurrences of “study” and “life.” This may indicate a theme of university or education in general, and how it connects to life as a whole. “Never” and “good” are opposing sentiments which indicate possible themes of struggle. This basic analysis shows these theme connect with a large audience due to the commercial success of the album.</p>
+			<p>In contrast, Jesus Is King is commercially the least successful album from Kanye West. Its constant use of the words “Hallelujah,” “Lord,” “God,” and “Jesus” implies a strong Christian theme that general consumers do not seem to identify with as much as themes of life, struggle and education. The next step is to share these findings. Move to the next stage by clicking <a href="share.html">here</a>.</p>
+		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-html">Top 10 words for Jesus is King:
+hallelujah: 42
+sing: 34
+work: 32
+every: 31
+lord: 31
+hands: 29
+god: 28
+jesus: 27
+'til: 25
+power: 23
+
+Top 10 words for I Hate Being Bi-Polar, It's Awesome:
+love: 28
+make: 25
+still: 25
+niggas: 16
+way: 14
+shit: 13
+feel: 12
+day: 11
+girl: 11
+sometimes: 10
+
+Top 10 words for The Life of Pablo:
+feel: 62
+god: 35
+love: 32
+yeezy: 32
+right: 30
+shit: 30
+nigga: 28
+time: 28
+good: 27
+turn: 26
+
+Top 10 words for Yeezus:
+niggas: 30
+god: 28
+bitch: 25
+black: 22
+fuck: 21
+love: 21
+right: 19
+high: 19
+new: 18
+shit: 17
+
+Top 10 words for My Beautiful Dark Twisted Fantasy:
+lights: 49
+look: 46
+fucking: 45
+shit: 34
+love: 33
+baby: 32
+ridiculous: 32
+life: 31
+one: 30
+nigga: 30
+
+Top 10 words for 808s & Heartbreak:
+amazing: 55
+love: 43
+never: 42
+will: 31
+stop: 30
+keep: 29
+real: 27
+things: 23
+okay: 22
+wrong: 21
+
+Top 10 words for Graduation:
+never: 52
+good: 49
+shit: 41
+told: 39
+lights: 39
+right: 32
+much: 31
+life: 31
+study: 28
+brother: 28
+
+Top 10 words for Late Registration:
+make: 63
+broke: 61
+forever: 58
+better: 57
+homie: 38
+gone: 34
+right: 32
+day: 31
+mama: 31
+take: 28
+
+Top 10 words for The College Dropout:
+well: 56
+right: 45
+still: 41
+things: 39
+shit: 38
+one: 38
+work: 35
+said: 33
+high: 29
+want: 29</code>
+			</pre>
+		</div>
 	</div>
 
 	<!-- end the main section of the homepage -->

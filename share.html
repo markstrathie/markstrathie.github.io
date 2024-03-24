@@ -12,6 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body class="home">
@@ -49,44 +52,240 @@
 
 	<div class="page-content">
 		<div>
-		<h3>THE PROJECT</h3>
-		<p>Data+AI is a free tutorial website aimed at teaching the basics of data analysis while utilising simple AI to optimise your workflow. It is aimed at beginners and will break down the entire process into 6 stages:</p>
-		<ol>
-			<li>Plan</li>
-			<li>Prepare</li>
-			<li>Process</li>
-			<li>Analyse</li>
-			<li>Share</li>
-			<li>Act</li>
-		</ol>
-			<p>An example project will be used to demonstrate all the necessary skills. This will be a musical trend analysis using Kanye West lyrics and sales figures. By the end of the project, you will be able to predict the success of an album by determining the most frequently used words in each track. You will learn to create word clouds like this one on the right (in the shape of the Gradutation Bear). This website is a jumping off point to learn these skills and then take them further on your own projects. It is a resource you can return to in any order to refresh your memory.</p>
-			<p>A Data Analyst is a rewarding and sought-after career and the more prior education you have will allow you to build an enticing portfolio that demonstrates your personal skills to prospective employers. Even if you are not seeking a career in this field directly, many jobs require conducting rudimentary data analysis to make sound business decisions.</p>
-			<p>It is assumed you are familiar with the concepts of data analysis and artificial intelligence, along with essential computer skills such as downloading programs and using chat bots.</p>
-		</div>
-		<div><img src="img/word_bear.png" alt="ChatGPT Logo"></div>
-		<div class="logos-list">
-			<img src="img/Python-logo-notext.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/jupyter-main-logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/vs-code-logo.png" alt="ChatGPT Logo" height="50">
-			<img src="img/pandas_white.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/matplotlib_logo.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/seaborn.svg" alt="ChatGPT Logo" height="50">
-			<img src="img/ChatGPT_logo.png" alt="ChatGPT Logo" height="50">
+		<h3>COMMUNICATION</h3>
+		<p>Sharing the results of your analysis requires effective communications. Humans are visual creatures and can usually process visuals more efficiently than text and tables. In data analysis, sharing data through charts and graphs are called visualisations. Once of the most important things to remember when creating visualisations is the 10 second rule. A viewer should know what they're looking at in the first 5 seconds and understand the conclusion in the next 5.</p>
 		</div>
 		<div>
-		<h3>TECHNOLOGY</h3>
-		<p>	Many of you may be familiar with data analysis through the use of spreadsheet programs such as Microsoft Excel. However, in the current information age, the amount of data created and consumed is increasing exponentially. Many companies now utilise big data in their analysis. In order to process large amount of information more efficiently, coding is used to simplify and automate the process. AI is used to streamline this process even further. For these reasons, this website will focus on the following software:</p>
-			<ul>
-			<li>Python</li>
-			<li>Jupyter Notebook</li>
-			<li>Visual Studio Code</li>
-			<li>Pandas</li>
-			<li>Matplotlib</li>
-			<li>Seaborn</li>
-			<li>ChatGPT</li>
-			</ul>
+			<h3>NARRATIVE</h3>
+			<p>Narrative is also important. This is the structure of your data story. Think of it like the plot of a book or movie with a beginning, middle and end. In order to share our music trend insights, we are going to begin with a graph that shows commercial success of Kanye West album sales. We will then show wordclouds which identify the top lyrical themes of each album. It will be effective here to order the wordclouds in accordance with the success of each album. This will give a natural narrative to the visualisations. To finish, we will do a direct comparison of the most and least successful albums. For this, we will make a custom wordcloud to enhance the aesthetics of the charts.</p>
+			</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python"># VISUALISING SALES DATA
+
+# Import matplotlib to plot our data
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+
+# Increase default plot size
+plt.rcParams['figure.figsize'] = [9, 6]
+
+# Drop unnecessary rows
+df_sales = df_sales.drop([5, 9, 11, 12, 13, 14])
+
+# Reverse the order of rows
+df_sales = df_sales.reindex(index=df_sales.index[::-1])
+
+# Plot the bar chart
+ax = df_sales.plot.barh(x='Album', y='Total EAS', legend=False)
+
+# Set x-axis label
+plt.xlabel('Total Equivalent Album Sales (USD)', labelpad=20)
+
+# Remove y-axis label
+plt.ylabel(None)
+
+# Set plot title
+plt.title('Kanye West Chronological Album Sales (2004-2019)', pad=30, fontsize=16)
+
+# Hide y-axis grid lines
+plt.gca().yaxis.grid(False)
+
+# Format x-axis ticks
+def y_tick_formatter(x, pos):
+	if x != 0:
+		return f'{x/1000000:,.0f}M'
+	else:
+		return f'{x:,.0f}'
+
+ax.xaxis.set_major_formatter(ticker.FuncFormatter(y_tick_formatter))
+ax.xaxis.set_major_locator(ticker.MultipleLocator(2000000))  # Set interval for major ticks
+
+# Adjust x-axis limits to ensure the 16M mark lines up with the end edge of the plot
+ax.set_xlim(ax.get_xlim()[0], 16000000)
+
+# Show the plot
+plt.show()</code>
+			</pre>
 		</div>
-		
+		<div><img src="img/Kanye_Sales_Chart.png" alt="ChatGPT Logo"></div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python"># Import libraries for generating wordclouds
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+# Setting up your wordcloud settings
+wc = WordCloud(
+	width=800,
+	height=600,
+	background_color='white',
+	min_font_size=3
+)
+
+# Generating wordcloud from Graduation album
+wc_album_1 = wc.generate_from_frequencies(album_word_counts.get('Graduation'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_1)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from Late Registration album
+wc_album_2 = wc.generate_from_frequencies(album_word_counts.get('Late Registration'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_2)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from The College Dropout album
+wc_album_3 = wc.generate_from_frequencies(album_word_counts.get('The College Dropout'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_3)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from My Beautiful Dark Twisted Fantasy album
+wc_album_4 = wc.generate_from_frequencies(album_word_counts.get('My Beautiful Dark Twisted Fantasy'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_4)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from 808s & Heartbreak album
+wc_album_5 = wc.generate_from_frequencies(album_word_counts.get('808s & Heartbreak'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_5)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from The Life of Pablo album
+wc_album_6 = wc.generate_from_frequencies(album_word_counts.get('The Life of Pablo'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_6)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from Yeezus album
+wc_album_7 = wc.generate_from_frequencies(album_word_counts.get('Yeezus'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_7)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from Ye album
+wc_album_8 = wc.generate_from_frequencies(album_word_counts.get('Ye'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_8)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+# Generating wordcloud from Jesus Is King album
+wc_album_9 = wc.generate_from_frequencies(album_word_counts.get('Jesus Is King'))
+
+# Showing the plot
+plt.figure( figsize=(20,30))
+plt.imshow(wc_album_9)
+plt.axis('off')
+plt.show()</code>
+			</pre>
+		</div>
+		<div>
+			#1 Graduation:
+			<img src="img/album_1.png" alt="ChatGPT Logo">
+			#2 Late Registration:
+			<img src="img/album_2.png" alt="ChatGPT Logo">
+			#3 The College Dropout:
+			<img src="img/album_3.png" alt="ChatGPT Logo">
+			#4 My Beautiful Dark Twisted Fantasy:
+			<img src="img/album_4.png" alt="ChatGPT Logo">
+			#5 808s & Heartbreak
+			<img src="img/album_5.png" alt="ChatGPT Logo">
+			#6 The Life of Pablo
+			<img src="img/album_6.png" alt="ChatGPT Logo">
+			#7 Yeezus
+			<img src="img/album_7.png" alt="ChatGPT Logo">
+			#8 Ye
+			<img src="img/album_8.png" alt="ChatGPT Logo">
+			#9 Jesus Is King
+			<img src="img/album_9.png" alt="ChatGPT Logo">
+		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python"># Import required libraries, including those to generate custome image mask
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, ImageColorGenerator
+import numpy as np
+import PIL.Image
+
+# Setting up our custom mask and colour map
+python_mask = np.array(PIL.Image.open('graduation_bear.png'))
+colormap = ImageColorGenerator(python_mask)
+
+# Initiating wordcloud settings
+wc = WordCloud(
+	width=800,
+	height=1000,
+	mask=python_mask,
+	background_color='white',
+	min_font_size=3
+)
+
+# Generating wordcloud and displaying
+wc.generate_from_frequencies(album_word_counts.get('Graduation'))
+wc.recolor(color_func=colormap)
+plt.figure( figsize=(20,30))
+plt.imshow(wc)
+plt.axis('off')
+plt.show()
+
+# INSERT CODE INTO NEW NOTEBOOK CELL
+
+wc.generate_from_frequencies(album_word_counts.get('Jesus Is King'))
+wc.recolor(color_func=colormap)
+plt.figure( figsize=(20,30))
+plt.imshow(wc)
+plt.axis('off')
+plt.show()</code>
+			</pre>
+		</div>
+		<div>
+			BEST - Graduation:
+			<img src="img/graduation_wc.png" alt="ChatGPT Logo">
+			WORST - Jesus Is King:
+			<img src="img/jik_wc.png" alt="ChatGPT Logo">
+		</div>
 	</div>
 
 	<!-- end the main section of the homepage -->

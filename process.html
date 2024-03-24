@@ -42,7 +42,7 @@
 
 		<div class="page-start process flex">
 			<div>
-			<h1>PROCCESS AND CLEAN DATA</h1>
+			<h1>PROCESS AND CLEAN DATA</h1>
 			<h2>Learn more below</h2>
 			</div>
 		</div>
@@ -96,25 +96,23 @@
 				<div>
 					<h3>READING IN A TEXT FILE</h3>
 					<p>When writing the following code, it's ok if you don't understand it all. There are comments  beside the hash symbols to describe what each line does. Hopefully throughout this project you will start to understand how the code works. ChatGPT can be used as an AI assistant, and you can ask to explain sections of code for you to develop more understanding.</p>
-					<code>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a pandas dataframe and sort it in descending order from the most used word to the least used.</code>
+					<p>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a pandas dataframe and sort it in descending order from the most used word to the least used.</p>
+					<p>While you can copy and paste it into your own VS Code, I recommend typing it out as it will help your learning more.</p>
+					<p>Once you have completed the code, click run (or Execute Cell) in the top left. From the list this generated we can see the first 5 lyrics and their occurrences. This is interesting to analyse more in the next stage.</p>
 				</div>
-			<div>
-				<pre style="white-space: pre-line; text-align: left;">
-					<code class="language-python" style="word-break: break-word;"># Library for data manipulation and can be used by writting pd
+			<div class="code-snippet">
+				<pre>
+					<code class="language-python"># Library for data manipulation and can be used by writting pd
 import pandas as pd
-
 # Library for wordclouds, STOPWORDS are common filler words that we want to omit
 from wordcloud import STOPWORDS
 
 # Open the file in read mode
 text = open("Kanye_West_Lyrics.txt", "r")
-	
 # Create an empty dictionary
 dic = dict()
-
 # Initializing punctuations string
 punc = '''!()[]{};:"\,<>./?@#$%^&*_~'''
-
 # Initializing stopwords
 stopwords = list(STOPWORDS) + ['know', 'now', 'got', "ain't", 'oh', 'la', 'see', 'go', 'yeah', 'say', 'need', 'man', 'back', 'let', "'cause", "gon'", 'wanna', 'ya', 'uh']
 	
@@ -123,20 +121,15 @@ for line in text:
 	# Skip line if contains square bracket as these are labels not lyrics
 	if '[' in line:
 		continue
-
 	# Remove the leading spaces and newline character
 	line = line.strip()
-
 	# Skip line if it is empty
 	if len(line) == 0:
 		continue
-	
 	# Convert the characters in line to lowercase to avoid case mismatch
 	line = line.lower()
-	
 	# Split the line into words on spaces
 	words = line.split(" ")
-	
 	# Iterate over each word in line
 	for word in words:
 		# Remove punctuation
@@ -155,12 +148,36 @@ for line in text:
 			dic[word] = 1
 
 # Convert dict into a dataframe using pandas
-df = pd.DataFrame(dic.items(), columns=['Name', 'Occurrence'])
-
-# See list of most common words
-print(df.sort_values(by = ['Occurrence'], ascending=False).to_string())</code>
+df_lyrics = pd.DataFrame(dic.items(), columns=['Name', 'Occurrence'])
+# Preview first 5 rows of dataframe
+df_lyrics.head()</code>
 				</pre>
 			</div>
+		<div>
+			<h3>READING IN A CSV FILE</h3>
+			<p>CSV stands for comma separated values and is a common spreadsheet file format. Our music sales data is a .csv file and we can import this to python just like we did with the lyrics. However, for this we will use pandas from the start to immediately save the spreadsheet as a dataframe, and then preview the data to see how it looks.</p>
+			<p>To clean the data, we can get rid of all the columns we don’t need. We are only interested in album names and total sales. The second block of code will drop all the unnecessary columns to keep our data more concise.</p>
+		</div>
+		<div class="code-snippet">
+			<pre>
+				<code class="language-python"># Reading in csv file using pandas and saving as df_sales
+df_sales = pd.read_csv('kanye_sales.csv')
+
+# Previewing full dataframe (15 rows)
+df_sales.head(15)
+
+
+# Dropping all columns apart from Album and Total EAS (Equivalent Album Sales)
+df_sales = df_sales[['Album', 'Total EAS']]
+
+# Previewing our updated dataframe
+df_sales.head(15)</code>
+			</pre>
+		</div>
+		<div>
+			<h3>ANALYSIS</h3>
+			<p>Now that we have our datasets cleaned and copies stored in our code, we are ready to start our analysis. While performing our analysis we may need to go back to earlier steps to consider other questions or perform more data transformations. Start the next step <a href="analyse.html">here</a>.</p>
+		</div>
 	</div>
 
 	<!-- end the main section of the homepage -->
