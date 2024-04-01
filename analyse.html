@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<!--  code snippets display by https://highlightjs.org/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
@@ -53,11 +54,14 @@
 		<div>
 			<h3>SORTING</h3>
 			<p>Analysing data is the most exciting part of the data analysis process. It is where all the work you've completed up to this point pays off. Data analysts are like data detectives that work to identify trends and relationships between datasets. The first step of analysis usually involves formatting your data.</p>
-			<p>You may be familiar with sorting. This is where we can arrange rows of our data in order of a chosen variable. In our case, we will sort our lyrics on their occurrences from highest to lowest. Since this data is so long we will use the toString and print functions to output a complete list. We will then be able to see the most used words in Kanye West's music. We will also sort his album sales in descending order, to see what his most commercially successful albums were. Let's take a look at the code.</p>
+			<p>You may be familiar with sorting. This is where we can arrange rows of our data in order of a chosen variable. In our case, we will sort our lyrics on their occurrences from highest to lowest. Since this data is so long we will use the <code>toString</code> and <code>print</code> functions to output a complete list. We will then be able to see the most used words in Kanye West's music. We will also sort his album sales in descending order, to see what his most commercially successful albums were. Let's take a look at the code.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python"># See list of most common words
+				<code class="language-python"># Python code from our notebook
+# SORTING BY MOST USED LYRICS AND MOST ALBUM SALES
+					
+# See list of most common words
 df_lyrics = df_lyrics.sort_values(by = ['Occurrence'], ascending = False)
 # Reset index to new order
 df_lyrics = df_lyrics.reset_index(drop = True)
@@ -75,11 +79,13 @@ df_sales.head(15)</code>
 		<div>
 			<h3>RESULTS</h3>
 			<p>From sorting these datasets, we can see 2 initial insights. The most sung word is "Love". This indicates a strong positive theme to Kanye West's music overall. The word "Shit" may indicate a more angry or negative sentiment, but this is the 4th most common word. "God" is the 10th most spoken which may indicate a religious theme to the music.</p>
-			<p>From the sorted sales data, we can see the most commercially successful album is 'Graduation'. The least successful is 'Jesus is King'. This is omitting the collaboration albums 'Kids See Ghosts' and 'VULTURES'. For further analysis is would be interesting to compare Graduation with Jesus is King to see the difference in themes between the most and least successful albums.</p>
+			<p>From the sorted sales data, we can see the most commercially successful album is <i>Graduation</i>. The least successful is <i>Jesus Is King</i>. This is omitting the collaboration albums <i>Kids See Ghosts</i> and <i>VULTURES</i>. For further analysis is would be interesting to compare <i>Graduation</i> with <i>Jesus Is King</i> to see the difference in themes between the most and least successful albums.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-html">			Name		Occurrence
+				<code class="language-html">Output of results from our notebook:
+
+			Name		Occurrence
 0			love		202
 1			make		198
 2			right		194
@@ -113,16 +119,18 @@ df_sales.head(15)</code>
 		</div>
 		<div>
 			<h3>FILTERING</h3>
-			<p>Filtering allows us to focus on specific parts of data and ignore the rest. This means we can analyse the only data based on the conditions we specify. For our project, we want to filter by album, so we can see themes associated with each. This will then allow us to compare each album's theme with its sales in order to see trends. I have already added album names to the lyrics text file. Some datasets will already have this information, so you will need to check yours for your own project.</p>
+			<p>Filtering allows us to focus on specific parts of data and ignore the rest. This means we can analyse the only data based on the conditions we specify. For our project, we want to filter by album, so we can see themes associated with each. This will then allow us to compare each album's theme with its sales in order to see trends. We have already added album names to the lyrics text file. Some datasets will already have this information, so you will need to check yours for your own project.</p>
 		</div>
 		<div>
 			<h3>AI ASSISTANCE</h3>
 			<p>In order to filter by album name, we need to go back to the code that reads in our text file. If you remember, this was a for loop that read over all the words and lines in the file. Now each album has its own individual words that need to be counted and reset when the next album begins. Our data structure is also slightly more complex as the words need to be stored under each album instead of one complete dictionary.</p>
-			<p>These coding problems are too complex to address in this beginner's tutorial. However, for your own project and for this one, you can use AI assistance at this point. ChatGPT allows you to code in English by describing what you need to achieve. The chatbot will then provide you with example code that you can copy into your notebook. Make sure you read this through to make sure it does what you want. ChatGPT includes comments on each line that you can check. If you are unsure or the code doesn't work the way you require, you can add further prompts to the AI.</p>
+			<p>These coding problems are too complex to address in this beginner's tutorial. However, for your own project and for this one, you can use AI assistance at this point. <a href='https://chat.openai.com/auth/login'>ChatGPT</a> allows you to code in natural language (English) by describing what you need to achieve. The chatbot will then provide you with example code that you can copy into your notebook. Make sure you read this through to make sure it does what you want. ChatGPT includes comments on each line that you can check. If you are unsure or the code doesn't work the way you require, you can add further prompts to the AI.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-html">Prompt 1: Write python code to read a text file containing lyrics and count occurances of each unique word. Include a way to separate sections of the text file into albums. Each album will have its own count of unique words.
+				<code class="language-html">ChatGPT Text
+					
+Prompt 1: Write python code to read a text file containing lyrics and count occurances of each unique word. Include a way to separate sections of the text file into albums. Each album will have its own count of unique words.
 
 Prompt 2: Add to the code to skip lines in the text file that include a square bracket.
 
@@ -139,7 +147,10 @@ Prompt 7: Define a new function that prints the top 10 most occuring words of ea
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python">import re
+				<code class="language-python"># Python code from our notebook
+# READING IN LYRICS BY ALBUM
+
+import re
 from collections import Counter
 from wordcloud import STOPWORDS
 
@@ -211,12 +222,14 @@ if __name__ == "__main__":
 			<h3>RESULTS</h3>
 			<p>After using AI to help with this section of coding, we managed to produce a list of all albums and the top 10 most used words for each. If you check these, spending on your lyrics source for the project, there may be a lot of filler words. In our example, these were words like “ooh” and “la.” In the code included above, all of these filler words are added to our stopwords and filtered out of the analysis. You may wish to do the same for your project.</p>
 			<p>Now with our results we can see the most common words from each album and begin to notice themes. We can then correlate this with the album sales to see which themes appear to be the most successful.</p>
-			<p>Graduation, the most successful album, has frequent occurrences of “study” and “life.” This may indicate a theme of university or education in general, and how it connects to life as a whole. “Never” and “good” are opposing sentiments which indicate possible themes of struggle. This basic analysis shows these theme connect with a large audience due to the commercial success of the album.</p>
-			<p>In contrast, Jesus Is King is commercially the least successful album from Kanye West. Its constant use of the words “Hallelujah,” “Lord,” “God,” and “Jesus” implies a strong Christian theme that general consumers do not seem to identify with as much as themes of life, struggle and education. The next step is to share these findings. Move to the next stage by clicking <a href="share.html">here</a>.</p>
+			<p><i>Graduation</i>, the most successful album, has frequent occurrences of “study” and “life.” This may indicate a theme of university or education in general, and how it connects to life as a whole. “Never” and “good” are opposing sentiments which indicate possible themes of struggle. This basic analysis shows these theme connect with a large audience due to the commercial success of the album.</p>
+			<p>In contrast, <i>Jesus Is King</i> is commercially the least successful album from Kanye West. Its constant use of the words “Hallelujah,” “Lord,” “God,” and “Jesus” implies a strong Christian theme that general consumers do not seem to identify with as much as themes of life, struggle and education. The next step is to share these findings. <a href="share.html">Find out how to share these results</a>.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-html">Top 10 words for Jesus is King:
+				<code class="language-html">Output of results from our notebook
+					
+Top 10 words for Jesus is King:
 hallelujah: 42
 sing: 34
 work: 32
@@ -228,7 +241,7 @@ jesus: 27
 'til: 25
 power: 23
 
-Top 10 words for I Hate Being Bi-Polar, It's Awesome:
+Top 10 words for Ye:
 love: 28
 make: 25
 still: 25

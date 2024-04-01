@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<!--  code snippets display by https://highlightjs.org/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
@@ -53,14 +54,16 @@
 		<div>
 		<h3>COMMUNICATION</h3>
 		<p>Sharing the results of your analysis requires effective communications. Humans are visual creatures and can usually process visuals more efficiently than text and tables. In data analysis, sharing data through charts and graphs are called visualisations. Once of the most important things to remember when creating visualisations is the 10 second rule. A viewer should know what they're looking at in the first 5 seconds and understand the conclusion in the next 5.</p>
+		<p>For further reading, David McCandless has an excellect <a href='https://informationisbeautiful.net/visualizations/what-makes-a-good-data-visualization/'>article and visualisation</a> to discuss this concept.</p>
 		</div>
 		<div>
 			<h3>NARRATIVE</h3>
-			<p>Narrative is also important. This is the structure of your data story. Think of it like the plot of a book or movie with a beginning, middle and end. In order to share our music trend insights, we are going to begin with a graph that shows commercial success of Kanye West album sales. We will then show wordclouds which identify the top lyrical themes of each album. It will be effective here to order the wordclouds in accordance with the success of each album. This will give a natural narrative to the visualisations. To finish, we will do a direct comparison of the most and least successful albums. For this, we will make a custom wordcloud to enhance the aesthetics of the charts.</p>
+			<p>Narrative is also important. This is the structure of your data story. Think of it like the plot of a book or movie with a beginning, middle and end. In order to share our music trend insights, we are going to begin with a graph that shows commercial success of Kanye West album sales. We will then show word clouds which identify the top lyrical themes of each album. It will be effective here to order the word clouds in accordance with the success of each album. This will give a natural narrative to the visualisations. To finish, we will do a direct comparison of the most and least successful albums. For this, we will make a custom word cloud to enhance the aesthetics of the charts.</p>
 			</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python"># VISUALISING SALES DATA
+				<code class="language-python"># Python code from our notebook
+# VISUALISING SALES DATA
 
 # Import matplotlib to plot our data
 import matplotlib.pyplot as plt
@@ -107,10 +110,13 @@ ax.set_xlim(ax.get_xlim()[0], 16000000)
 plt.show()</code>
 			</pre>
 		</div>
-		<div><img src="img/Kanye_Sales_Chart.png" alt="ChatGPT Logo"></div>
+		<div><img src="img/Kanye_Sales_Chart.png" alt="Bar chart of Kanye West album sales"></div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python"># Import libraries for generating wordclouds
+				<code class="language-python"># Python code from our notebook
+# GENERATING WORD CLOUDS IN ORDER OF ALBUM SUCCESS
+
+# Import libraries for generating wordclouds
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
@@ -221,28 +227,35 @@ plt.show()</code>
 			</pre>
 		</div>
 		<div>
-			#1 Graduation:
-			<img src="img/album_1.png" alt="ChatGPT Logo">
-			#2 Late Registration:
-			<img src="img/album_2.png" alt="ChatGPT Logo">
-			#3 The College Dropout:
-			<img src="img/album_3.png" alt="ChatGPT Logo">
-			#4 My Beautiful Dark Twisted Fantasy:
-			<img src="img/album_4.png" alt="ChatGPT Logo">
-			#5 808s & Heartbreak
-			<img src="img/album_5.png" alt="ChatGPT Logo">
-			#6 The Life of Pablo
-			<img src="img/album_6.png" alt="ChatGPT Logo">
-			#7 Yeezus
-			<img src="img/album_7.png" alt="ChatGPT Logo">
-			#8 Ye
-			<img src="img/album_8.png" alt="ChatGPT Logo">
-			#9 Jesus Is King
-			<img src="img/album_9.png" alt="ChatGPT Logo">
+			<caption>#1 Graduation:</caption>
+			<img src="img/album_1.png" alt="Graduation Word Cloud">
+			<caption>#2 Late Registration:</caption>
+			<img src="img/album_2.png" alt="Late Registration Word Cloud">
+			<caption>#3 The College Dropout:</caption>
+			<img src="img/album_3.png" alt="The College Dropout Word Cloud">
+			<caption>#4 My Beautiful Dark Twisted Fantasy:</caption>
+			<img src="img/album_4.png" alt="My Beautiful Dark Twisted Fantasy Word Cloud">
+			<caption>#5 808s & Heartbreak:</caption>
+			<img src="img/album_5.png" alt="808s & Heartbreak Word Cloud">
+			<caption>#6 The Life of Pablo:</caption>
+			<img src="img/album_6.png" alt="The Life of Pablo Word Cloud">
+			<caption>#7 Yeezus:</caption>
+			<img src="img/album_7.png" alt="Yeezus Word Cloud">
+			<caption>#8 Ye:</caption>
+			<img src="img/album_8.png" alt="Ye Word Cloud">
+			<caption>#9 Jesus Is King:</caption>
+			<img src="img/album_9.png" alt="Jesus Is King Word Cloud">
+		</div>
+		<div>
+			<h3>VISUALISATIONS</h3>
+			<p>The final section of code uses the same word clouds as before, but focuses only on the most sold album (<i>Graduation</i>) and the least sold (<i>Jesus Is King</i>). A focus on these two albums highlights the difference in themes that may relate to what content creates successful music or not. To make the word clouds more appealing to our audience we have made a <a href='resources/graduation_bear.png'>downloadable Dropout Bear image mask</a>. This bear is the mascot for multiple Kanye West albums and popular with fans. If you download this (Right click > Save image as) and place in in the same folder as your notebook file, you will be able to use it with the following code.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python"># Import required libraries, including those to generate custome image mask
+				<code class="language-python"># Python code from our notebook
+# GENERATE CUSTOM WORD CLOUDS COMPARING MOST AND LEAST SOLD ALBUMS
+
+# Import required libraries, including those to generate custome image mask
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, ImageColorGenerator
 import numpy as np
@@ -280,10 +293,40 @@ plt.show()</code>
 			</pre>
 		</div>
 		<div>
-			BEST - Graduation:
-			<img src="img/graduation_wc.png" alt="ChatGPT Logo">
-			WORST - Jesus Is King:
-			<img src="img/jik_wc.png" alt="ChatGPT Logo">
+			<caption>MOST SUCCESSFUL KANYE WEST ALBUM (Graduation) THEMES:</caption>
+			<img src="img/graduation_wc.png" alt="Graduation Word Cloud in shape of Dropout Bear">
+		</div>
+		<div>
+			<caption>LEAST SUCCESSFUL KANYE WEST ALBUM (Jesus Is King) THEMES:</caption>
+			<img src="img/jik_wc.png" alt="Jesus Is King Word Cloud in shape of Dropout Bear">
+		</div>
+		<div>
+			<h3>THE DATA STORY</h3>
+			<p>Now let's revisit our project questions with the results from our analysis and visualisations. It is normal for some questions not to be fully answered and often further analysis is required.</p>
+			<ol>
+				<li>On a scale of 1-10 (with 10 being the most important) how relevant are song lyrics to an album's success?</li>
+				<ul><li>Further analysis needed to ascertain degree of importance. However, lyrics seem to be important. There is a large difference in lyrical themes from Kanye West's most and least sucessful albums.</li></ul>
+				<li>What are the top 5 lyrical themes that influence a successful album?</li>
+				<ul><li>From our analysis this would be themes of these words imply themes of perseverance, positivity, reflection, transition, and authenticity.</li></ul>
+				<li>What song elements would make listeners more likely to stream the song?</li>
+				<ul><li>Analysis implies similar to above answer. Further work needed to learn if there is any difference in motivations between album sales and song streams.</li></ul>
+				<li>Have certain themes become more or less popular in the last three years?</li>
+				<ul><li>We did not cover any lyrics from the last 3 years as this was not included in our data collection. However, we did have sales data. If this can be matched with the album content in another project then it would be possible to answer this.</li></ul>
+				<li>How much would a listener pay for a full album instead of consuming via streaming services?</li>
+				<ul><li>We did not look at much data on this specific question. However, it would be reasonable to assume it is similar to the retail price for Graduation, as this was the best-selling album. However, streaming services have changed the way people consume music so more analysis is needed for a confident answer.</li></ul>
+			</ol>
+			<p>And the root question using the 5 Whys method was:</p>
+			<ul>
+				<li>Why is Kanye West's content popular and controversial?</li>
+				<ul>
+					<li>Popularity may be due to his use of broad and relatable themes such as themes of perseverance, positivity, reflection, transition, and authenticity.</li>
+					<li>Controversy may be due to the artist's frequent use of the word "bitch" which may be interpreted as misogynistic. His use of the word "God" implies religious themes which may be polarising.</li>
+				</ul>
+			</ul>
+		</div>
+		<div>
+			<h3>END OF TUTORIAL</h3>
+			<p>If you have made it to the end and completed the music trend analysis project, well done! This is the end of the tutorial on data analysis and AI. We hope you have learned basic skills in each of the 5 data analysis steps so that you will be able to create your own projects. <a href='index.html'>DATA+AI</a> is a resource you can come back to for further help in your future data analysis journey.</p>
 		</div>
 	</div>
 

@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<!--  code snippets display by https://highlightjs.org/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
@@ -52,7 +53,8 @@
 	<div class="page-content">
 		<div>
 		<h3>ASKING QUESTIONS</h3>
-		<p><i>“If I was given 1 hour to save the planet I would spend 59 minutes defining the problem and 1 minute resolving it.”</i> - Albert Einstein
+		<p><i>“If I was given 1 hour to save the planet I would spend 59 minutes defining the problem and 1 minute resolving it.”</i><br>
+			- Albert Einstein
 			<br>
 			<br>
 			The start of any data analysis project is to ask the right questions. Data is now the world's most valuable resource and contains an infinite number of insights that help to make the right data-driven decisions. However, these insights change depending on the questions you are trying to answer. Spending countless hours on a project can result in wasted resources when the results are not found to be reliable or applicable, depending on the circumstances.
@@ -61,11 +63,11 @@
 			In order to ask the right questions, or define the best business objective, it is crucial to be aware of any bias and gut instincts, as these can influence your analysis process. It is also important to remember that correlation does not equal causation - a relationship between variables can be due to a variety of factors and is not always obvious. In order to help the planning process, there are 3 frameworks that help you to think in a more analytical way. These examples can be replaced by your own project.
 		</p>
 		</div>
-		<div><img src="img/Einstein_1921_by_F_Schmutzer_-_restoration.jpg" alt="Albert Einstein Portrait"></div>
-		<img src="img/smart_questions.jpg">
+		<div><img src="img/einstein_med.jpg" alt="Albert Einstein head photo"></div>
+		<img src="img/chatgpt_med.jpg" alt="ChatGPT website photo">
 		<div>
 			<h3>AI ASSISTANCE</h3>
-			<p>For any part of the data analysis process, you can use AI assistance from ChatGPT. This website will focus on ChatGPT 3.5 which is free to use. Firstly, you need to make an account by visiting the <a href="https://chat.openai.com/auth/login">start page</a>. You can now use the chatbot in your web browser to help with every aspect of your data analysis. For the next 3 frameworks, if you are struggling or want reassurance or new ideas, you can prompt ChatGPT for questions that help define your project's objective. We will show example prompts from ChatGPT which can be altered depending on your own project.</p>
+			<p>For any part of the data analysis process, you can use AI assistance from ChatGPT. This website will focus on ChatGPT 3.5 which is free to use. Firstly, you need to make an account by visiting <a href="https://chat.openai.com/auth/login">ChatGPT's start page</a>. You can now use the chatbot in your web browser to help with every aspect of your data analysis. For the next 3 frameworks, if you are struggling or want reassurance or new ideas, you can prompt ChatGPT for questions that help define your project's objective. We will show example prompts from ChatGPT which can be altered depending on your own project.</p>
 			</div>
 			<div>
 				<h3>SMART Questions</h3>
@@ -83,13 +85,16 @@
 					<li>What are the top 5 lyrical themes that influence a successful album?</li>
 					<li>What song elements would make listeners more likely to stream the song?</li>
 					<li>Have certain themes become more or less popular in the last three years?</li>
-					<li>How much would a listener pay for a full album instead of consuming via streaming services?</li>
+					<li><a href='https://www.complex.com/music/a/markelibert/kanye-west-streaming-pirating-sells-vultures-2-website'>How much would a listener pay for a full album instead of consuming via streaming services?</a></li>
 				</ul>
 				</p>
 			</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-html">Prompt:
+				<code class="language-html">ChatGPT Text
+					
+					
+Prompt:
 
 I am doing a data analysis project on music trend with a focus on Kanye West. I will analyse his lyrics and his album sales. What are good questions for my project to answer?
 
@@ -115,11 +120,12 @@ By addressing these questions through your data analysis, you can gain a compreh
 					Why analyse musical trends?
 					<ul><i>Because millions of people listen to music. It has a powerful amount of influence and cultural impact, it is a multi-million-pound industry, not to mention the simple enjoyment of it as an art form.</i></ul>
 					Why analyse Kanye West?
-					<ul><i>Because he is one of the top musical artists in the world, currently the 7th top artist in the world on Spotify. His reach and influence is tremendous.</i></ul>
+					<ul><i>Because he is one of the top musical artists in the world, currently the <a href='https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x'>6th top artist in the world on Spotify</a>. His reach and influence is tremendous.</i></ul>
 					Why is Kanye West one of the top musicians?
-					<ul><i>Because he has some of the highest amount of song streams and album sales in the world.</i></ul>
+					<ul><i>Because he has <a href='https://chartmasters.org/kanye-west-albums-and-songs-sales/'>some of the highest amount of song streams and album sales in the world</a>.</i></ul>
 					Why is his music so popular?
-					<ul><i>Because he is a controversial figure, always appearing in the media. He is a talented musician. Because of the content of his music.</i></ul>
+					<ul><i>Because he is a controversial figure, <a href='https://www.theguardian.com/music/kanyewest'>often appearing in the media</a>. He is a talented musician. Because of the content of his music.</i></ul>
+					<br>
 					<b>Why is his content popular and controversial?</b>
 					<br>
 					<br>
@@ -128,7 +134,10 @@ By addressing these questions through your data analysis, you can gain a compreh
 			</div>
 			<div class="code-snippet">
 				<pre>
-					<code class="language-html">Prompt:
+					<code class="language-html">ChatGPT Text
+
+
+Prompt:
 
 Why analyse musical trends?
 
@@ -147,12 +156,11 @@ Overall, analyzing musical trends offers valuable insights into the dynamic and 
 				</pre>
 			</div>
 			<div>
-				<h3>Scope of Work</h3>
-				<p>Finally, it is helpful to create a scope of work document. This included agreed outlines for the project, final deliverables, a timeline, reports, and milestones. When you think of the output of the project in these real terms it helps define exactly what you need to discover from the start. Click <a href="resources/SOW.docx">here</a> to download a template that you can fill out.</p>
+				<h3>Data Analysis is Iterative</h3>
+				<p>Often with your data analysis projects you will need to follow a non-linear path. Do not be afraid to return to previous stages, including the planning stage, to ask more questions. The nature of your project can evolve as you explore the data. Visit the next stage of the process, <a href="prepare.html">preparing your data</a>.</p>
 			</div>
 			<div>
-				<h3>Data Analysis is Iterative</h3>
-				<p>Often with your data analysis projects you will need to follow a non-linear path. Do not be afraid to return to previous stages, including the planning stage, to ask more questions. The nature of your project can evolve as you explore the data. Visit the next stage of the process <a href="prepare.html">here</a>.</p>
+				<img src="img/signposts_med.jpg" alt="Signposts photo">
 			</div>
 	</div>
 

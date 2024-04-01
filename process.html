@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--  my CSS sheet -->
 	<link rel="stylesheet" href="css/styles.css">
+	<!--  code snippets display by https://highlightjs.org/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
@@ -52,7 +53,7 @@
 	<div class="page-content">
 		<div>
 		<h3>DATA INTEGRITY</h3>
-		<p>3 trillion dollars is the yearly cost of poor-quality data in the US alone, IBM estimated in 2016. The data cleaning process is important to ensure data integrity. Our data may be incomplete or insufficient in a number of ways. This can be in form of incorrect data types, or incorrect ranges. For example, our song lyrics will need to be textual data. We will need to ensure the correct range for our album sales to make sure they are accurate - if the range was 1-10 million, 100 million would be invalid. We also need to make sure our data is relevant and not outdated.</p>
+		<p>3 trillion dollars is the yearly cost of poor-quality data in the US alone, <a href='https://hbr.org/2016/09/bad-data-costs-the-u-s-3-trillion-per-year'>IBM estimated in 2016</a>. The data cleaning process is important to ensure data integrity. Our data may be incomplete or insufficient in a number of ways. This can be in form of incorrect data types, or incorrect ranges. For example, our song lyrics will need to be textual data. We will need to ensure the correct range for our album sales to make sure they are accurate - if the range was 1-10 million, 100 million would be invalid. We also need to make sure our data is relevant and not outdated.</p>
 		</div>
 		<div>
 			<h3>DATA CLEANING</h3>
@@ -64,44 +65,48 @@
 				<li>Remove extra spaces</li>
 				<li>Check spelling, case, punctuation</li>
 				</ol>
-			<p>A changelog should be kept to document changes to your datasets. This makes it easier to revert back to earlier versions if any mistakes are made. It allows others to make sense of data that has been transformed. Click <a href="resources/changlog.txt">here</a> to download a template that you can fill out as you proceed in your data analysis projects.</p>
+			<p>A changelog should be kept to document changes to your datasets. This makes it easier to revert back to earlier versions if any mistakes are made. It allows others to make sense of data that has been transformed. <a href="resources/changlog.txt">Download our template</a> that you can fill out as you proceed in the project.</p>
 		</div>
 		<div>
 		<h3>INSTALL ADDITIONAL LIBRARIES</h3>
 		<p>Now it's time to start coding. Python has many tools that make the data cleaning process quicker and easier. We will first read in our lyrics dataset and store it. This allows us to interact with it in our Python code. We will clean the data as we are importing it, are store it as an object called a dictionary. This is a list of items where each item has a key and a value. The key will be each word, and the value how many occurrences of the word. We will then convert this to a dataframe which will allow us to view it in a nicer way. In order to perform these tasks we will need 2 additional Python libraries:</p>
 		<ul>
-			<li>Pandas</li>
-			<li>Wordcloud</li>
+			<li><a href='https://pandas.pydata.org/'>Pandas</a></li>
+			<li><a href='https://pypi.org/project/wordcloud/'>Wordcloud</a></li>
 		</ul>
-		<p>Pandas allows us to work with dataframes. Worldcloud allows us to make wordclouds and has a list of stopwords, which are regular filler words that we want to omit in our worldclouds. To install these open Anaconda Prompt which came with your installation of Anaconda. Then type 'conda install pandas' and follow the instructions. Do the same for Wordcloud by typing 'conda install wordcloud'.</p>
+		<p>Pandas allows us to work with dataframes. Worldcloud allows us to make wordclouds and has a list of stopwords, which are regular filler words that we want to omit in our worldclouds. To install these open the Anaconda Prompt program which came with your installation of Anaconda. Then type 'conda install pandas' and follow the instructions. Do the same for Wordcloud by typing 'conda install wordcloud'.</p>
+		<p>While we also mentioned the Matplotlib library, this actually already comes pre-installed with the Anaconda distribution of Python, so you do not need to manually install this.</p>
 		</div>
 		<div>
-			<img src="img/install-libraries.png">
+			<img src="img/install-libraries.png" alt="Screenshot showing installation of Pandas using Anaconda Prompt">
 		</div>
 		<div>
 			<h3>INSTALL JUPYTER EXTENSION</h3>
 			<p>We will be using Jupyter notebooks for this project, which comes with Anaconda. To allow to be compatible with VS Code we need to install the extension. Open VS Code and click the extensions icon on the left. Then search for 'jupyter' and install the top result.</p>
 			</div>
 			<div>
-				<img src="img/install_jupyter.png">
+				<img src="img/install_jupyter.png" alt="Screenshot showing installation of Jupyter extension in VS Code">
 			</div>
 			<div>
 				<h3>USING VS CODE</h3>
 				<p>Once you have installed Jupyter, go to File>Open Folder and select the project folder you made in the previous section to save your datasets. Now right click in the explorer pane and select New File. Call it 'kanye_west_eda.ipynb'. At the top of the screen click +Markdown to add text to the notebook. Start with a # and a space. This makes the text title-sized. Pick something similar to Kanye West Lyrics EDA, which stands for Exploratory Data Analysis. When you're done click the tick in the top right of the cell. Now click +Code and we can start writing our first code!</p>
 				</div>
 				<div>
-					<img src="img/using_vs_code.png">
+					<img src="img/using_vs_code.png" alt="Screenshot showing creation of a notebook file in VS Code">
 				</div>
 				<div>
 					<h3>READING IN A TEXT FILE</h3>
-					<p>When writing the following code, it's ok if you don't understand it all. There are comments  beside the hash symbols to describe what each line does. Hopefully throughout this project you will start to understand how the code works. ChatGPT can be used as an AI assistant, and you can ask to explain sections of code for you to develop more understanding.</p>
-					<p>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a pandas dataframe and sort it in descending order from the most used word to the least used.</p>
+					<p>When writing the following code, it's ok if you don't understand it all. There are comments  beside the hash symbols to describe what each line does. Hopefully throughout this project you will start to understand how the code works. <a href='https://chat.openai.com/auth/login'>ChatGPT can be used as an AI assistant</a>, and you can ask to explain sections of code for you to develop more understanding. Simply copy and paste a line of code from our website, paste it into ChatGPT, and then type in your question.</p>
+					<p>The following code will import our 2 libraries that we installed. It will then open our lyrics text file and read through each word line by line using a 'for loop.' This means it will repeat a set process until it reaches the end of the line, and the end of the text file. As we read in the lines and words we will clean the data. We do this by avoiding lines with square brackets, which are not lyrics. We get rid of extra spaces, capital letters, punctuation, and filler words (stopwords). The for loop will also count occurrences of each word for us. Then it stores a copy of the data in a dictionary. Finally, we convert the dictionary to a Pandas dataframe and sort it in descending order from the most used word to the least used.</p>
 					<p>While you can copy and paste it into your own VS Code, I recommend typing it out as it will help your learning more.</p>
-					<p>Once you have completed the code, click run (or Execute Cell) in the top left. From the list this generated we can see the first 5 lyrics and their occurrences. This is interesting to analyse more in the next stage.</p>
+					<p>Once you have completed the code, click run (or 'Execute Cell') in the top left. From the list this generated we can see the first 5 lyrics and their occurrences. This is interesting to analyse more in the next stage.</p>
 				</div>
 			<div class="code-snippet">
 				<pre>
-					<code class="language-python"># Library for data manipulation and can be used by writting pd
+					<code class="language-python"># Python code from our notebook
+# READING IN LYRICS TEXT
+
+# Library for data manipulation and can be used by writting pd
 import pandas as pd
 # Library for wordclouds, STOPWORDS are common filler words that we want to omit
 from wordcloud import STOPWORDS
@@ -154,12 +159,15 @@ df_lyrics.head()</code>
 			</div>
 		<div>
 			<h3>READING IN A CSV FILE</h3>
-			<p>CSV stands for comma separated values and is a common spreadsheet file format. Our music sales data is a .csv file and we can import this to python just like we did with the lyrics. However, for this we will use pandas from the start to immediately save the spreadsheet as a dataframe, and then preview the data to see how it looks.</p>
-			<p>To clean the data, we can get rid of all the columns we don’t need. We are only interested in album names and total sales. The second block of code will drop all the unnecessary columns to keep our data more concise.</p>
+			<p>CSV stands for comma separated values and is a common spreadsheet file format. Our music sales data is a .csv file and we can import this into Python just like we did with the lyrics. However, for this we will use Pandas from the start to immediately save the spreadsheet as a dataframe, and then preview the data to see how it looks.</p>
+			<p>To clean the data, we can get rid of all the columns we don't need. We are only interested in album names and total sales. The second block of code will drop all the unnecessary columns to keep our data more concise.</p>
 		</div>
 		<div class="code-snippet">
 			<pre>
-				<code class="language-python"># Reading in csv file using pandas and saving as df_sales
+				<code class="language-python"># Python code from our notebook
+# READING IN SALES CSV
+					
+# Reading in csv file using pandas and saving as df_sales
 df_sales = pd.read_csv('kanye_sales.csv')
 
 # Previewing full dataframe (15 rows)
@@ -175,7 +183,7 @@ df_sales.head(15)</code>
 		</div>
 		<div>
 			<h3>ANALYSIS</h3>
-			<p>Now that we have our datasets cleaned and copies stored in our code, we are ready to start our analysis. While performing our analysis we may need to go back to earlier steps to consider other questions or perform more data transformations. Start the next step <a href="analyse.html">here</a>.</p>
+			<p>Now that we have our datasets cleaned and copies stored in our code, we are ready to start our analysis. Make sure you have updated your changelog with any transformations you made. While performing our analysis we may need to go back to earlier steps to consider other questions or perform more data transformations. <a href="analyse.html">Continue to analyse the data</a>.</p>
 		</div>
 	</div>
 

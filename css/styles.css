@@ -200,29 +200,24 @@ body {
 /* slides from below header */
 
 .ask {
-  background-image: url("../img/ask1.jpg");
+  background-image: url("../img/plan_med.jpg");
 }
 
 .prepare {
-  background-image: url("../img/prepare-3.jpg");
+  background-image: url("../img/prepare_med.jpg");
 }
 
 .process {
-  background-image: url("../img/process.jpg");
+  background-image: url("../img/clean_med.jpg");
   background-position: top;
 }
 
 .analyse {
-  background-image: url("../img/analyse-2.jpg");
+  background-image: url("../img/analyse_med.jpg");
 }
 
 .share {
-  background-image: url("../img/share.jpg");
-}
-
-.act {
-  background-image: url("../img/act-2.jpg");
-  background-position: bottom;
+  background-image: url("../img/story_med.jpg");
 }
 
 
@@ -247,6 +242,7 @@ body {
 
 .page-content {
   font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
   font-weight: 400;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -274,6 +270,7 @@ body {
 
 .logos-list {
   display: grid;
+  justify-self: center;
   grid-template-columns: 1fr 1fr;
 }
 
