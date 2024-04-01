@@ -22,6 +22,7 @@ body {
   font-size: 16px;
   color: #ecf0f1;
   text-decoration: none;
+  --nav-height: 50px;
 }
 
 /* primary header */
@@ -44,6 +45,7 @@ body {
   min-height: 100vh;
   min-width: 100dvw;
   min-width: 100vw;
+  /* padding-top: 25px; */
 }
 
 .primary-header a {
@@ -70,17 +72,25 @@ body {
 .home-tile h3 {
   font-size: 16px;
   font-weight: 400;
-  margin: 2vh;
   word-wrap: normal;
   text-align: center;
 }
 
-.top-header {
-  flex-basis: 100%;
-  gap: var(--gap, 3.5rem);
+.nav {
+  width: 100%;
+  height: var(--nav-height);
   justify-content: center;
   align-items: center;
-  height: 2.5rem;
+  position: fixed;
+  background: black;
+  display: flex;
+  gap: var(--gap, 3.5rem);
+  transition: transform 0.2s;
+}
+
+.nav--hidden {
+  /* transform: translateY(calc(-1 * var(--nav-height))); */
+  transform: translateY(-350px);
 }
 
 .logo{
@@ -302,7 +312,7 @@ footer p {
   .logo {
     z-index: 2000;
     /* padding-top: 0.75rem; */
-    padding-left: 2rem;
+    padding-left: 4.5rem;
   }
 
   .primary-navigation {
@@ -341,7 +351,7 @@ footer p {
     width: 1.25rem;
     border: 0;
     aspect-ratio: 1;
-    top: 0.75rem;
+    top: 0.95rem;
     right: 1.5rem;
   }
 
@@ -353,6 +363,8 @@ footer p {
   .primary-header {
     grid-template-columns: 1fr;
     gap: 0;
+    padding-top: 60px;
+    padding-bottom: 30px;
   }
 
   .page-content {
